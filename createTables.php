@@ -9,9 +9,9 @@ if ($conn->connect_error) {
     die("A conexão falhou: " . $conn->connect_error);
 }
 
-// Criando tabela candidatos
+// Criação da tabela
 $sql = "CREATE TABLE candidatos (
-    id_candidato INTEGER NOT NULL AUTO_INCREMENT,
+    id_candidato INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(20) NOT NULL,
     sobrenome VARCHAR(20) NOT NULL,
     email VARCHAR(128) NOT NULL,
@@ -24,9 +24,16 @@ $sql = "CREATE TABLE candidatos (
     sexualidade VARCHAR(20) NOT NULL,
     vulnerabilidade_socioeconomica BOOLEAN,
     genero VARCHAR(30) NOT NULL,
-    etnia VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id_candidato)
+    etnia VARCHAR(30) NOT NULL
 )";
 
+if ($conn->query($sql) === TRUE) {
+    echo "Tabela 'candidatos' criada com sucesso!";
+} else {
+    echo "Erro ao criar tabela: " . $conn->error;
+}
+
+// Fecha a conexão
 $conn->close();
+
 ?>

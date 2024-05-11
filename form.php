@@ -36,7 +36,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>POLI CONSULTING CLUB</title>
+	<title>POLI JÚNIOR</title>
 	<meta charset="UTF-8">
 	<style type="text/css">
 		body {

@@ -1,7 +1,7 @@
 <?php
 	$servername = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "abj19032005";
 
 	// Para criar a conexão
 	$conn = new mysqli($servername, $username, $password);
@@ -11,7 +11,7 @@
 	}
 
 	// Para criar o banco de dados
-	$sql = "CREATE DATABASE ps_policc";
+	$sql = "CREATE DATABASE poli_junior";
 	if ($conn->query($sql) === TRUE) {
 		echo "O Banco de Dados foi criado com sucesso";
 	} else {

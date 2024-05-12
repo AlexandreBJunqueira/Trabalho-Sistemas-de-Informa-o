@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Se os dados do usuário foram encontrados no banco de dados, redireciona para a página de acesso autorizado
         $_SESSION['loggedin'] = true;
         $_SESSION['nusp'] = $nusp;
-        header("Location: acesso_autorizado.php");
+        header("Location: interno.html");
     } else {
         // Se os dados do usuário não foram encontrados no banco de dados, exibe uma mensagem de erro
         $error_message = "Usuário ou Senha errados";

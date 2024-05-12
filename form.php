@@ -44,6 +44,7 @@
   
       if ($conn->query($sql) === TRUE) {
         echo "Dados guardados com sucesso.";
+        header("Location: interno.html");
       }else{
         echo "Erro:". $sql . "<br>". $conn->error;
       }

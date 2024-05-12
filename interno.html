@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Candidato</title>
+<link rel="stylesheet" href="form.css">
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<style>
+    /* Estilo para a tabela */
+    table {
+        width: 60%;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Estilo para o calendário */
+    #calendar {
+        width: 700px;
+        margin: 20px auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+  
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: [
+        {
+          title: 'Entrevista Inicial',
+          start: '2024-05-15',
+          backgroundColor: '#ffa500' // Laranja
+        },
+        {
+          title: 'Avaliação Técnica',
+          start: '2024-05-20',
+          backgroundColor: '#ffa500' // Laranja
+        },
+        {
+          title: 'Dinâmica de Grupo',
+          start: '2024-05-25',
+          backgroundColor: '#ffa500' // Laranja,
+        }
+      ]
+      });
+  
+      calendar.render();
+    });
+  </script>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="logo_pj.png" alt="Logo da Empresa">
+        </div>
+        <div class="title">
+            <h1>Área do Candidato</h1>
+        </div>
+    </div>
+</div>
+
+<h2>Etapas do Processo Seletivo</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Etapas</th>
+            <th>Resultados</th>
+            <th>Feedbacks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Entrevista Inicial</td>
+            <td>Aguardando</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Avaliação Técnica</td>
+            <td>Aguardando</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Dinâmica de Grupo</td>
+            <td>Aguardando</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Calendário de Etapas</h2>
+<div id="calendar"></div>
+
+</body>
+</html>

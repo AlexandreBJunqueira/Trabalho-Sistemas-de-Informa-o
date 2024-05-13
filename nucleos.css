@@ -10,7 +10,7 @@ body {
 
 /* Estilos do header */
 .topo-div {
-    background-color: rgb(19, 109, 193);
+    background-color: #004E95;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -100,7 +100,7 @@ ul, ol {
 }
 
 #ntec h2 {
-    color: rgb(31, 93, 251); /* Título do ntec em azul */
+    color: #004E95; /* Título do ntec em azul */
 }
 
 /* Estilo para a opção "Inscreva-se" */

@@ -210,7 +210,7 @@
   <input type="submit" name="submit" value="Enviar">
 
   <div class="container" style="text-align: center;">
-    <a href="inicial_10.html" style="font-size: 12px;">Voltar para a página inicial</a>
+    <a href="inicial.html" style="font-size: 12px;">Voltar para a página inicial</a>
   </div>
 </form>
 

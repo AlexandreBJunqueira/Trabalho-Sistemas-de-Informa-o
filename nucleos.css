@@ -18,6 +18,11 @@ body {
     padding: 10px;
 }
 
+.titulo-branco {
+    color: white;
+
+}
+
 .menu-topo a {
     margin-left: 20px; /* Reduzi a margem para ficar mais compacto */
     color: #fff;
@@ -129,3 +134,10 @@ ul, ol {
   .menu-topo a:hover {
     text-decoration: underline;
   }
+
+  footer {
+    background-color: #004E95;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

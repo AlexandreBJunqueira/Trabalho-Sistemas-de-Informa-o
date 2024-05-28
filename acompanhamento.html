@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Área do Candidato</title>
+<title>Acompanhar Processo Seletivo</title>
 <link rel="stylesheet" href="form.css">
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
 <style>
@@ -27,6 +27,13 @@
         width: 700px;
         margin: 20px auto;
     }
+    
+    footer {
+        background-color: #004E95;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+    }
 </style>
 
 <script>
@@ -39,17 +46,17 @@
         {
           title: 'Entrevista Inicial',
           start: '2024-05-15',
-          backgroundColor: '#ffa500' // Laranja
+          backgroundColor: '#004E95' 
         },
         {
           title: 'Avaliação Técnica',
           start: '2024-05-20',
-          backgroundColor: '#ffa500' // Laranja
+          backgroundColor: '#004E95' 
         },
         {
           title: 'Dinâmica de Grupo',
           start: '2024-05-25',
-          backgroundColor: '#ffa500' // Laranja,
+          backgroundColor: '#004E95'
         }
       ]
       });
@@ -63,11 +70,11 @@
 
 <div class="header">
     <div class="container">
-        <div class="logo">
+        <a class="logo" href="menu.html">
             <img src="logo_pj.png" alt="Logo da Empresa">
-        </div>
+        </a>
         <div class="title">
-            <h1>Área do Candidato</h1>
+            <h1>Acompanhar Processo Seletivo</h1>
         </div>
     </div>
 </div>
@@ -83,17 +90,17 @@
     </thead>
     <tbody>
         <tr>
-            <td>Entrevista Inicial</td>
-            <td>Aguardando</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Avaliação Técnica</td>
+            <td>Apresentação Inicial</td>
             <td>Aguardando</td>
             <td>-</td>
         </tr>
         <tr>
             <td>Dinâmica de Grupo</td>
+            <td>Aguardando</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Entrevista</td>
             <td>Aguardando</td>
             <td>-</td>
         </tr>
@@ -103,5 +110,8 @@
 <h2>Calendário de Etapas</h2>
 <div id="calendar"></div>
 
+<footer>
+    <p>© 2024 Poli Júnior. Todos os direitos reservados.</p>
+</footer>
 </body>
 </html>

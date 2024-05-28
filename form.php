@@ -68,9 +68,9 @@
 
 <div class="header">
 <div class="container">
-  <div class="logo">
+  <a class="logo" href="index.html">
     <img src="logo_pj.png" alt="Logo da Empresa">
-  </div>
+  </a>
   <div class="title">
     <h1>Formulário de Candidatos</h1>
   </div>
@@ -192,16 +192,6 @@
 
   <div class="input-group">
     <div class="input-half">
-      <label for="curso">Núcleo de Interesse:</label>
-        <select id="nucleo_de_interesse" name="nucleo_de_interesse" required>
-          <option value="" disabled selected>Selecione</option>
-          <option value="Núcleo de Análise e Inteligência de Dados">Núcleo de Análise e Inteligência de Dados</option>
-          <option value="Núcleo de Consultoria Estratégica e Negócios">Núcleo de Consultoria Estratégica e Negócios</option>
-          <option value="Núcleo de Engenharia Civil">Núcleo de Engenharia Civil</option>
-          <option value="Núcleo de Tecnologia e Inovação">Núcleo de Tecnologia e Inovação</option>
-        </select>
-    </div>
-    <div class="input-half">
       <label for="curso">Defina sua Senha:</label>
       <input type="text" id="senha" name="senha" required>
     </div>
@@ -210,7 +200,7 @@
   <input type="submit" name="submit" value="Enviar">
 
   <div class="container" style="text-align: center;">
-    <a href="inicial.html" style="font-size: 12px;">Voltar para a página inicial</a>
+    <a href="index.html" style="font-size: 12px;">Voltar para a página inicial</a>
   </div>
 </form>
 
@@ -224,7 +214,6 @@ if (isset($error_message)) {
 
 </body>
 </html>
-
 
 <script>
 document.getElementById('telefone').addEventListener('input', function (e) {

@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #003d75; /* fundo branco */
+  }
+  
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #f5f5f5; /* caixa branca */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #004E95; /* bordas azuis */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    width: 280px; /* largura da caixa */
+  }
+  
+  .login-box h2 {
+    margin-bottom: 20px;
+    color: #004E95; /* texto azul */
+    text-align: center;
+  }
+  
+  .login-box input[type="text"],
+  .login-box input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #004E95; /* bordas azuis */
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .login-box input[type="submit"] {
+    width: 30%;
+    padding: 8px; /* reduzi o padding */
+    border: 2px solid #ff7f00; /* contorno laranja */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ff7f00; /* fundo branco */
+    color: #fff; /* texto laranja */
+    cursor: pointer;
+  }
+  
+  .login-box input[type="submit"]:hover {
+    background-color: #ff8000d4; /* fundo laranja */
+    color: #fff; /* texto branco */
+  }
+  
+  /* Centraliza o botão "Enviar" */
+  .login-box form {
+    text-align: center;
+  }
+  
+  .error-message {
+    margin-top: 12px;
+    text-align: center; /* Alinha centralmente o texto */
+    color: #ff0000; /* Define a cor vermelha para o texto */
+  }
+
+  .logo {
+    display: inline-block; /* Exibe o logo como um bloco em linha */
+    position: absolute; /* Define a posição absoluta */
+    top: 18%;
+    left: 8%;
+  }
+  
+  .logo img {
+    height: 400px; /* Define a altura do logo */
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .buttons button {
+    background-color: #004E95;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .buttons button:hover {
+    background-color: #ff8000d4;
+  }

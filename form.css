@@ -128,3 +128,10 @@ input[type="submit"]:hover {
   left: 50%; /* Define a esquerda a 50% da largura do pai */
   transform: translate(-50%, -50%); /* Move a div de volta 50% da sua própria largura e altura */
 }
+
+footer {
+  background-color: #004E95;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}

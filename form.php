@@ -19,7 +19,6 @@
 		$data_de_nascimento = $_POST['data_de_nascimento'];
 		$data_de_nascimento_formatada = date('Y-m-d', strtotime(str_replace('/', '-', $data_de_nascimento)));
 		$ano_de_ingresso = $_POST['ano_de_ingresso'];
-		$nucleo_de_interesse = $_POST['nucleo_de_interesse'];
 		$curso = $_POST['curso'];
 		$sexualidade = $_POST['sexualidade'];
 		$vulnerabilidade_socioeconomica = $_POST['vulnerabilidade_socioeconomica'] == '1' ? 1 : 0;
@@ -29,7 +28,7 @@
 
     // Verificar se o número USP já existe na base de dados
     $nusp_existente = $_POST['nusp'];
-    $verificar_sql = "SELECT nusp FROM candidatos WHERE nusp = '$nusp_existente'";
+    $verificar_sql = "SELECT nusp FROM cadastrados WHERE nusp = '$nusp_existente'";
     $resultado = $conn->query($verificar_sql);
 
     if ($resultado->num_rows > 0) {
@@ -39,8 +38,8 @@
     // O número USP não existe na base de dados, então prossiga com a inserção dos dados
     // Inserir Dados
     if (isset($_POST['submit'])) {
-      $sql = "INSERT INTO candidatos (nome, sobrenome, email, telefone, nusp, data_de_nascimento, ano_de_ingresso, nucleo_de_interesse, curso, sexualidade, vulnerabilidade_socioeconomica, genero, etnia, senha)
-      VALUES ('$nome', '$sobrenome', '$email', '$telefone','$nusp', '$data_de_nascimento_formatada', '$ano_de_ingresso', '$nucleo_de_interesse', '$curso', '$sexualidade', '$vulnerabilidade_socioeconomica', '$genero', '$etnia', '$senha')";
+      $sql = "INSERT INTO cadastrados (nome, sobrenome, email, telefone, nusp, data_de_nascimento, ano_de_ingresso, curso, sexualidade, vulnerabilidade_socioeconomica, genero, etnia, senha)
+      VALUES ('$nome', '$sobrenome', '$email', '$telefone','$nusp', '$data_de_nascimento_formatada', '$ano_de_ingresso', '$curso', '$sexualidade', '$vulnerabilidade_socioeconomica', '$genero', '$etnia', '$senha')";
   
       if ($conn->query($sql) === TRUE) {
         echo "Dados guardados com sucesso.";
@@ -72,7 +71,7 @@
     <img src="logo_pj.png" alt="Logo da Empresa">
   </a>
   <div class="title">
-    <h1>Formulário de Candidatos</h1>
+    <h1>Formulário de Cadastro</h1>
   </div>
 </div>
 </div>

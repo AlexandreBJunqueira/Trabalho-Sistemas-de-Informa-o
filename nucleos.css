@@ -20,14 +20,13 @@ body {
 
 .titulo-branco {
     color: white;
-
 }
 
 .menu-topo a {
     margin-left: 20px; /* Reduzi a margem para ficar mais compacto */
     color: #fff;
     text-decoration: none;
-    font-size: 18px; /* Reduzi o tamanho da fonte do menu */
+    font-size: 16px; /* Reduzi o tamanho da fonte do menu */
 }
 
 .menu-topo a:hover {
@@ -43,14 +42,24 @@ h1 {
     margin: 0;
     flex-grow: 1;
     text-align: center;
-    font-size: 1.5em; /* Tamanho da fonte do título */
+    font-size: 1.2em; /* Tamanho da fonte do título */
 }
 
+/* Contêiner da grade */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilos para os blocos */
 section {
-    margin: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     overflow: hidden; /* Evita que as imagens ultrapassem os limites da seção */
+    background-color: white; /* Fundo branco para os blocos de conteúdo */
+    padding: 10px; /* Reduzi o padding */
 }
 
 section .content {
@@ -61,13 +70,13 @@ section .content {
 
 section .text {
     flex-grow: 1;
-    padding: 20px;
-    font-size: 1.1em; /* Tamanho da fonte do texto na seção */
+    padding: 10px; /* Reduzi o padding */
+    font-size: 0.9em; /* Reduzi o tamanho da fonte do texto na seção */
 }
 
 section .image {
     flex-shrink: 0;
-    padding: 20px;
+    padding: 10px; /* Reduzi o padding */
 }
 
 section .image img {
@@ -88,7 +97,7 @@ footer {
 
 /* Tamanho da fonte para itens de lista */
 ul, ol {
-    font-size: 1.2em; /* Tamanho da fonte para itens de lista */
+    font-size: 1em; /* Reduzi o tamanho da fonte para itens de lista */
 }
 
 /* Cores dos títulos de cada seção */
@@ -115,27 +124,27 @@ ul, ol {
     border-radius: 5px; /* Borda arredondada */
     color: #fff; /* Cor do texto branco */
     background-color: orange; /* Fundo laranja */
-  }
-  
-  /* Estilo para o menu de navegação */
-  .menu-topo {
+}
+
+/* Estilo para o menu de navegação */
+.menu-topo {
     display: flex;
     justify-content: flex-end; /* Alinha os itens à direita */
     align-items: center; /* Alinha verticalmente */
     gap: 20px; /* Espaçamento entre os itens */
-  }
-  
-  .menu-topo a {
+}
+
+.menu-topo a {
     color: #fff; /* Cor do texto branco */
     text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .menu-topo a:hover {
-    text-decoration: underline;
-  }
+    font-size: 16px;
+}
 
-  footer {
+.menu-topo a:hover {
+    text-decoration: underline;
+}
+
+footer {
     background-color: #004E95;
     color: white;
     text-align: center;

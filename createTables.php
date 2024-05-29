@@ -24,7 +24,7 @@ $sql = "CREATE TABLE cadastrados (
     genero VARCHAR(30) NOT NULL,
     etnia VARCHAR(30) NOT NULL,
     senha VARCHAR(20) NOT NULL
-)";
+);";
 
 if ($conn->query($sql) === TRUE) {
     echo "Tabela 'candidatos' criada com sucesso!";
@@ -44,6 +44,13 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Erro ao criar tabela: " . $conn->error;
 }
+
+$sql = "CREATE TABLE avaliadores (
+    nusp INT NOT NULL PRIMARY KEY,
+    senha VARCHAR(20) NOT NULL
+);
+INSERT INTO avaliadores (nusp, senha)
+VALUES ('12561642', 'abj19032005');";
 
 // Fecha a conexão
 $conn->close();

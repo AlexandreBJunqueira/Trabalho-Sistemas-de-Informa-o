@@ -67,7 +67,7 @@ $conn->close();
 
 <div class="header">
 <div class="container">
-  <a class="logo" href="menu.html">
+  <a class="logo" href="menu_candidato.html">
     <img src="logo_pj.png" alt="Logo da Empresa">
   </a>
   <div class="title">

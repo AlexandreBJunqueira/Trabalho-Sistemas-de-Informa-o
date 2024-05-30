@@ -7,15 +7,36 @@ pre, ul, ol, li, dl, dt, dd, form, a, fieldset, input, th, td {
 }
 
 body {
+    background-image: url('alta_gestao.jpg'); /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem */
+    background-size: cover; /* Garante que a imagem de fundo cubra toda a tela */
+    background-position: top; /* Centraliza a imagem de fundo */
+}
+
+body {
     font-family: Arial, sans-serif;
-    background-image: url('AGE.jpeg');
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     line-height: normal;
     font-size: 1em;
-    background-color: #ffffff; /* Cor de fundo padrão */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 1; /* Garante que a camada esteja acima da imagem de fundo */
+}
+
+.main-content {
+    padding-top: 80px; /* Ajusta o preenchimento superior para compensar a altura do header */
+    padding-bottom: 80px; /* Ajusta o preenchimento inferior para compensar a altura do footer */
+    position: relative; /* Adiciona posição relativa para poder posicionar elementos filhos */
+    z-index: 2;
 }
 
 /* Estilos do header */
@@ -25,7 +46,9 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
+    position: relative;
+    z-index: 2;
 }
 
 .menu-topo a {
@@ -33,36 +56,50 @@ body {
     color: #fff;
     text-decoration: none;
     font-size: 18px; /* Reduzi o tamanho da fonte do menu */
+    position: relative;
+    z-index: 2;
 }
 
 .menu-topo a:hover {
     text-decoration: underline;
+    position: relative;
+    z-index: 2;
 }
 
 /* Estilos da seção de frase */
 .frase {
     text-align: center;
-    color: #004E95;
+    color: #2a7cc9;
     margin-top: 50px;
+    position: relative;
+    z-index: 2;
 }
 
 .frase h2 {
     font-size: 24px;
+    position: relative;
+    z-index: 2;
 }
 
 .frase h4 {
     color: #e7b133;
     margin-top: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .frase p {
     margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Estilos do botão de inscrição */
 .container {
     text-align: center;
     margin-top: 30px;
+    position: relative;
+    z-index: 2;
 }
 
 .container a {
@@ -75,10 +112,14 @@ body {
     font-size: 20px;
     font-weight: bold;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .container a:hover {
     background-color: #004E95;
+    position: relative;
+    z-index: 2;
 }
 
 /* Estilos do rodapé */
@@ -92,6 +133,7 @@ body {
     color: #fff;
     text-align: center;
     font-size: 14px;
+    z-index: 2;
 }
 /* Adicione ao final do arquivo CSS */
 
@@ -99,7 +141,9 @@ body {
 .frase h2,
 .frase p,
 .frase h4 {
-    font-size: 24px; /* Aumenta o tamanho da fonte */
+    font-size: 24px; 
+    position: relative;
+    z-index: 2;/* Aumenta o tamanho da fonte */
 }
 
 /* Adicione ao final do arquivo CSS */
@@ -114,6 +158,8 @@ body {
   border-radius: 5px; /* Borda arredondada */
   color: #fff; /* Cor do texto branco */
   background-color: orange; /* Fundo laranja */
+  position: relative;
+  z-index: 2;
 }
 
 /* Estilo para o menu de navegação */
@@ -122,14 +168,20 @@ body {
   justify-content: flex-end; /* Alinha os itens à direita */
   align-items: center; /* Alinha verticalmente */
   gap: 20px; /* Espaçamento entre os itens */
+  position: relative;
+  z-index: 2;
 }
 
 .menu-topo a {
   color: #fff; /* Cor do texto branco */
   text-decoration: none;
   font-size: 18px;
+  position: relative;
+  z-index: 2;
 }
 
 .menu-topo a:hover {
   text-decoration: underline;
+  position: relative;
+  z-index: 2;
 }

@@ -1,4 +1,3 @@
-/* Estilos para todas as telas */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,34 +14,42 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 5px 10px; /* Reduzindo o padding superior e inferior */
 }
 
-.titulo-branco {
-    color: white;
-}
-
-.menu-topo a {
-    margin-left: 20px; /* Reduzi a margem para ficar mais compacto */
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px; /* Reduzi o tamanho da fonte do menu */
+/* Estilo para o menu de navegação */
+.menu-topo {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+    align-items: center; /* Alinha verticalmente */
+    gap: 15px; /* Reduzi o espaçamento entre os itens */
 }
 
 .menu-topo a:hover {
     text-decoration: underline;
 }
 
+.menu-topo a {
+    margin-left: 15px; /* Reduzi a margem para ficar mais compacto */
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px; /* Tamanho da fonte do menu */
+}
+
+.logo {
+    margin-right: auto; /* Move a logo para a esquerda */
+}
+
 .logo img {
-    width: 100px;
+    width: 90px; /* Aumentei o tamanho da imagem do logo */
+    height: auto;
 }
 
 h1 {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    flex-grow: 1;
     text-align: center;
-    font-size: 1.2em; /* Tamanho da fonte do título */
+    font-size: 1.5em; /* Tamanho da fonte do título */
 }
 
 /* Contêiner da grade */
@@ -106,15 +113,15 @@ ul, ol {
 }
 
 #nciv h2 {
-    color: rgb(216, 216, 60); /* Título do nciv em amarelo */
+    color: rgb(226, 226, 29); /* Título do nciv em amarelo */
 }
 
 #ndados h2 {
-    color: rgb(195, 11, 195); /* Título do ndados em roxo */
+    color: rgb(115, 2, 126); /* Título do ndados em roxo */
 }
 
 #ntec h2 {
-    color: #004E95; /* Título do ntec em azul */
+    color: #0b60af; /* Título do ntec em azul */
 }
 
 /* Estilo para a opção "Inscreva-se" */
@@ -124,24 +131,12 @@ ul, ol {
     border-radius: 5px; /* Borda arredondada */
     color: #fff; /* Cor do texto branco */
     background-color: orange; /* Fundo laranja */
+    transition: background-color 0.3s ease; /* Adiciona transição suave para a cor de fundo */
 }
 
-/* Estilo para o menu de navegação */
-.menu-topo {
-    display: flex;
-    justify-content: flex-end; /* Alinha os itens à direita */
-    align-items: center; /* Alinha verticalmente */
-    gap: 20px; /* Espaçamento entre os itens */
-}
-
-.menu-topo a {
-    color: #fff; /* Cor do texto branco */
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.menu-topo a:hover {
-    text-decoration: underline;
+.inscreva-se:hover {
+    background-color: white; /* Altera a cor de fundo para branco quando passa o mouse */
+    color: #004E95; /* Altera a cor do texto para azul quando passa o mouse */
 }
 
 footer {

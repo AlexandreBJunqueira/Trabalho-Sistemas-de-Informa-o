@@ -9,8 +9,17 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 16px; /* Tamanho base da fonte */
         }
+        h1 {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            text-align: center;
+            font-size: 1.5em; /* Tamanho da fonte do título */
+        }
+
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -41,27 +50,6 @@
         .member-info p {
             margin: 0;
         }
-        .menu {
-            background-color: #004E95; /* Cor de fundo do menu */
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-        .menu img {
-            width: 100px;
-            margin-right: auto;
-        }
-        .menu a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .menu a:hover {
-            background-color: #ddd;
-            color: black;
-        }
         .inscreva-se-btn {
             background-color: #FBAA26; /* Cor do botão */
             color: white;
@@ -88,11 +76,6 @@
             text-align: right; /* Alinha o texto do contato à direita */
         }
 
-        /* Aumenta o tamanho da fonte do botão Login */
-        .menu .inscreva-se-btn {
-            font-size: 16px;
-        }
-
         /* Estilos do header */
         .topo-div {
             background-color: #004E95;
@@ -100,14 +83,22 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            padding: 5px 10px; /* Ajuste para reduzir o padding verticalmente */
+        }
+
+        /* Estilo para o menu de navegação */
+        .menu-topo {
+            display: flex;
+            justify-content: flex-end; /* Alinha os itens à direita */
+            align-items: center; /* Alinha verticalmente */
+            gap: 15px; /* Espaçamento entre os itens */
         }
 
         .menu-topo a {
-            margin-left: 20px; /* Reduzi a margem para ficar mais compacto */
+            margin-left: 15px; /* Reduzi a margem para ficar mais compacto */
             color: #fff;
             text-decoration: none;
-            font-size: 18px; /* Reduzi o tamanho da fonte do menu */
+            font-size: 18px; /* Tamanho da fonte do menu */
         }
 
         .menu-topo a:hover {
@@ -123,22 +114,13 @@
         background-color: orange; /* Fundo laranja */
         }
 
-        /* Estilo para o menu de navegação */
-        .menu-topo {
-        display: flex;
-        justify-content: flex-end; /* Alinha os itens à direita */
-        align-items: center; /* Alinha verticalmente */
-        gap: 20px; /* Espaçamento entre os itens */
+        .logo {
+            margin-right: auto; /* Move a logo para a esquerda */
         }
 
-        .menu-topo a {
-        color: #fff; /* Cor do texto branco */
-        text-decoration: none;
-        font-size: 18px;
-        }
-
-        .menu-topo a:hover {
-        text-decoration: underline;
+        .logo img {
+            width: 90px; /* Reduzi o tamanho da imagem do logo */
+            height: auto;
         }
 
         footer {
@@ -149,17 +131,18 @@
         }
     </style>
 </head>
+<body>
 <header class="topo-div">
-    <h1><img src="logo_pj.png" alt="Logo Poli Júnior" width="150"></h1>
+    <h1 class="logo"><img src="logo_pj.png" alt="Logo Poli Júnior"></h1>
     <nav class="menu-topo">
         <a href="index.html">Início</a>
         <a href="https://polijunior.com.br">Sobre</a>
         <a href="nucleos.html">Núcleos</a>
         <a href="contato.html">Contato</a>
         <a href="login.php" class="inscreva-se">Área do Candidato</a>
-    </nav>
+        </nav>
+        
 </header>
-<body>
     <div class="container">
         <div class="member">
             <img src="barry.jpg" alt="João Pedro Ribeiro - Barry">
@@ -169,10 +152,10 @@
             </div>
         </div>
         <div class="member">
-            <img src="anonimo.jpg" alt="Nome da Pessoa 2">
+            <img src="caio.jpg" alt="Caio Castro">
             <div class="member-info">
-                <h3>Nome da Pessoa 2</h3>
-                <p>Cargo: Líder do PS<br>Email: pessoa2@polijunior.com.br<br>Núcleo: Núcleo da Pessoa 2</p>
+                <h3>Caio Castro</h3>
+                <p>Cargo: Líder do PS<br>Email: caio.castro@polijunior.com.br<br>Núcleo: NDados</p>
             </div>
         </div>
         <div class="member">
@@ -204,8 +187,8 @@
             </div>
         </div>
     </div>
-</body>
-<footer>
-    <p>© 2024 Poli Júnior. Todos os direitos reservados.</p>
-</footer>
+    </body>
+    <footer>
+        <p>© 2024 Poli Júnior. Todos os direitos reservados.</p>
+    </footer>
 </html>

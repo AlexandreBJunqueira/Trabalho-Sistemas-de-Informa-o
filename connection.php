@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "abj19032005";
+    $password = "";
     $dbname = "poli_junior";
 
     // Create connection

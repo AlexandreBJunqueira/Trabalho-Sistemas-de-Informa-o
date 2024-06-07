@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
 
     // Consulta SQL para verificar se o número USP e a senha correspondem aos registros no banco de dados
-    $sql = "SELECT * FROM cadastrados WHERE nusp = '$nusp' AND senha = '$senha'";
+    $sql = "SELECT * FROM avaliadores WHERE nusp = '$nusp' AND senha = '$senha'";
     $result = $conn->query($sql);
 
     // Verifica se há algum resultado retornado pela consulta

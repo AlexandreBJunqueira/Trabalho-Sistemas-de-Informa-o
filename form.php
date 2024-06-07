@@ -23,7 +23,8 @@
 		$sexualidade = $_POST['sexualidade'];
 		$vulnerabilidade_socioeconomica = $_POST['vulnerabilidade_socioeconomica'] == '1' ? 1 : 0;
 		$genero = $_POST['genero'];
-		$etnia = $_POST['etnia'];				
+		$etnia = $_POST['etnia'];
+    		
     $senha = $_POST['senha'];	
 
     // Verificar se o número USP já existe na base de dados
@@ -43,7 +44,7 @@
   
       if ($conn->query($sql) === TRUE) {
         echo "Dados guardados com sucesso.";
-        header("Location: interno.html");
+        header("Location: menu_candidato.html");
       }else{
         echo "Erro:". $sql . "<br>". $conn->error;
       }

@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
     $senha = $_POST['senha'];
     $nucleo_de_interesse = $_POST['nucleo_de_interesse'];
     $processo_seletivo = $_POST['processo_seletivo'];
+    $conheceu_pj = $_POST['conheceu_pj'];	
 
     // Previne SQL Injection
     $nusp = $conn->real_escape_string($nusp);
@@ -35,8 +36,14 @@ if (isset($_POST['submit'])) {
 
         if ($result->num_rows == 0) {
             // Insere os dados na tabela inscritos
-            $stmt = $conn->prepare("INSERT INTO inscritos (nusp, nucleo_de_interesse, processo_seletivo) VALUES (?, ?, ?)");
-            $stmt->bind_param("iss", $nusp, $nucleo_de_interesse, $processo_seletivo);
+            // Obter a data atual
+            // Obter a data atual (ano-mês-dia)
+            $data_inscricao = date("Y-m-d");
+
+            // Inserir os dados na tabela inscritos, incluindo a data de inscrição
+            $stmt = $conn->prepare("INSERT INTO inscritos (nusp, nucleo_de_interesse, processo_seletivo, data_inscricao, conheceu_pj) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("issss", $nusp, $nucleo_de_interesse, $processo_seletivo, $data_inscricao, $conheceu_pj);
+
             if ($stmt->execute()) {
                 $message = "Inscrição realizada com sucesso.";
             } else {
@@ -89,7 +96,7 @@ $conn->close();
     </div>
   </div>
   <div class="input-group">
-    <div class="input-half">
+    <div class="input-third">
       <label for="curso">Núcleo de Interesse:</label>
         <select id="nucleo_de_interesse" name="nucleo_de_interesse" required>
           <option value="" disabled selected>Selecione</option>
@@ -99,7 +106,7 @@ $conn->close();
           <option value="Núcleo de Tecnologia e Inovação">Núcleo de Tecnologia e Inovação</option>
         </select>
     </div>
-    <div class="input-half">
+    <div class="input-third">
       <label for="Processo Seletivo">Processo Seletivo:</label>
         <select id="processo_seletivo" name="processo_seletivo" required>
           <option value="" disabled selected>Selecione</option>
@@ -108,12 +115,25 @@ $conn->close();
           <option value="24.2">24.2</option>
         </select>
     </div>
+    <div class="input-third">
+      <label for="Como soube do Processo Seletivo">Como soube do Processo Seletivo:</label>
+        <select id="conheceu_pj" name="conheceu_pj" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="Whatsapp">Whatsapp</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Panfletos">Panfletos</option>
+          <option value="PJ Day">PJ Day</option>
+          <option value="WI - Workshop Integrativo">WI - Workshop Integrativo</option>
+          <option value="Algum Membro do Poli Júnior">Algum Membro da Poli Júnior</option>
+          <option value="Outro">Outro</option>
+        </select>
+    </div>
   </div>
 
   <input type="submit" name="submit" value="Enviar">
 
   <div class="container" style="text-align: center;">
-    <a href="menu.html" style="font-size: 12px;">Voltar para a página inicial</a>
+    <a href="menu_candidato.html" style="font-size: 12px;">Voltar para a página inicial</a>
   </div>
 </form>
 

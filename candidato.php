@@ -55,30 +55,84 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações do Candidato</title>
+    <link rel="stylesheet" href="candidato.css">
 </head>
 <body>
-    <a href="avaliacao_buscar.php">Voltar para a página de busca</a>
-    <?php echo $message; ?>
-
     <?php if ($candidato && $inscritos): ?>
-        <h1>Informações do Candidato</h1>
-        <p><strong>Nome:</strong> <?php echo htmlspecialchars($candidato['nome'] . " " . $candidato['sobrenome']); ?></p>
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($candidato['email']); ?></p>
-        <p><strong>Telefone:</strong> <?php echo htmlspecialchars($candidato['telefone']); ?></p>
-        <p><strong>NUSP:</strong> <?php echo htmlspecialchars($candidato['nusp']); ?></p>
-        <p><strong>Data de Nascimento:</strong> <?php echo htmlspecialchars($candidato['data_de_nascimento']); ?></p>
-        <p><strong>Ano de Ingresso:</strong> <?php echo htmlspecialchars($candidato['ano_de_ingresso']); ?></p>
-        <p><strong>Curso:</strong> <?php echo htmlspecialchars($candidato['curso']); ?></p>
-        <p><strong>Sexo:</strong> <?php echo htmlspecialchars($candidato['sexualidade']); ?></p>
-        <p><strong>Vulnerabilidade Socioeconômica:</strong> <?php echo $candidato['vulnerabilidade_socioeconomica'] ? 'Sim' : 'Não'; ?></p>
-        <p><strong>Gênero:</strong> <?php echo htmlspecialchars($candidato['genero']); ?></p>
-        <p><strong>Etnia:</strong> <?php echo htmlspecialchars($candidato['etnia']); ?></p>
-        <p><strong>Processo Seletivo:</strong> <?php echo htmlspecialchars($inscritos['processo_seletivo']); ?></p>
-        
-        <h2>Editar Informações de Inscrição</h2>
+        <div class="header">
+        <div class="container">
+        <a class="logo" href="avaliacao_buscar.php">
+            <img src="logo_pj.png" alt="Logo da Empresa">
+        </a>
+        <div class="title">
+            <h1>Avaliação do Candidato</h1>
+        </div>
+        </div>
+        </div>
+    <div class="container">
+        <table class="info-table">
+            <tr>
+                <th colspan="2">Informações Pessoais</th>
+            </tr>
+            <tr>
+                <td><strong>Nome:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['nome'] . " " . $candidato['sobrenome']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['email']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Telefone:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['telefone']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>NUSP:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['nusp']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Data de Nascimento:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['data_de_nascimento']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Ano de Ingresso:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['ano_de_ingresso']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Curso:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['curso']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Sexo:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['sexualidade']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Vulnerabilidade Socioeconômica:</strong></td>
+                <td><?php echo $candidato['vulnerabilidade_socioeconomica'] ? 'Sim' : 'Não'; ?></td>
+            </tr>
+            <tr>
+                <td><strong>Gênero:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['genero']); ?></td>
+            </tr>
+            <tr>
+                <td><strong>Etnia:</strong></td>
+                <td><?php echo htmlspecialchars($candidato['etnia']); ?></td>
+            </tr>
+        </table>
+
+        <table class="info-table">
+            <tr>
+                <th colspan="2">Informações do Processo Seletivo</th>
+            </tr>
+            <tr>
+                <td><strong>Processo Seletivo:</strong></td>
+                <td><?php echo htmlspecialchars($inscritos['processo_seletivo']); ?></td>
+            </tr>
+        </table>
+
+        <h2>Situação no Processo Seletivo</h2>
         <form action="candidato.php" method="post">
             <input type="hidden" name="processo_seletivo" value="<?php echo htmlspecialchars($inscritos['processo_seletivo']); ?>">
-            <label>            
             <input type="hidden" name="nusp" value="<?php echo htmlspecialchars($candidato['nusp']); ?>">
             <label>
                 <input type="checkbox" name="palestra_institucional" <?php if ($inscritos['palestra_institucional']) echo 'checked'; ?>> Palestra Institucional
@@ -95,10 +149,22 @@ $conn->close();
             <label>
                 <input type="checkbox" name="mentoria" <?php if ($inscritos['mentoria']) echo 'checked'; ?>> Mentoria
             </label><br>
-            <button type="submit">Atualizar</button>
+            <input type="submit" name="submit" value="Atualizar">
         </form>
+        
     <?php else: ?>
         <p>Candidato não encontrado.</p>
     <?php endif; ?>
+
+    <div class="container" style="text-align: center;">
+    <a href="index.html" style="font-size: 12px;">Voltar para a página inicial</a>
+    </div>
+
+    <?php
+    if (isset($message)) {
+    echo '<div style="text-align: center; margin-top: 20px;">' . $message . '</div>';
+    }
+    ?>
+</div>
 </body>
 </html>

@@ -42,17 +42,33 @@ $conn->close();
             text-align: left;
         }
     </style>
+    <link rel="stylesheet" href="form.css">
 </head>
+<div class="header">
+<div class="container">
+  <a class="logo" href="menu_avaliador.html">
+    <img src="logo_pj.png" alt="Logo da Empresa">
+  </a>
+  <div class="title">
+    <h1>Avaliação de Candidatos</h1>
+  </div>
+</div>
+</div>
 <body>
-    <h1>Buscar Candidato</h1>
-    <a href="menu_avaliador.html">Voltar para o Menu</a>
+<div class="container">
     <form action="avaliacao_buscar.php" method="get">
+    <div class="input-group">
+    <div class="input-third">
         <label for="nusp">NUSP:</label>
         <input type="text" id="nusp" name="nusp" value="<?php echo htmlspecialchars($filter_nusp); ?>" placeholder="Filtrar por NUSP">
         <br>
+    </div>
+    <div class="input-third">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($filter_nome); ?>" placeholder="Filtrar por Nome">
         <br>
+    </div>
+    <div class="input-third">
         <label for="processo_seletivo">Processo Seletivo:</label>
         <select id="processo_seletivo" name="processo_seletivo">
             <option value="">Todos os Processos Seletivos</option>
@@ -61,10 +77,12 @@ $conn->close();
             <?php endwhile; ?>
         </select>
         <br>
-        <button type="submit">Filtrar</button>
+    </div>
+    </div>
+        <input type="submit" name="submit" value="Filtrar">
     </form>
 
-    <h2>Todos os Cadastrados</h2>
+    <h2>Cadastrados</h2>
     <table>
         <thead>
             <tr>
@@ -100,5 +118,9 @@ $conn->close();
             <?php endif; ?>
         </tbody>
     </table>
+    <div class="container" style="text-align: center;">
+    <a href="index.html" style="font-size: 12px;">Voltar para a página inicial</a>
+  </div>
+</div>
 </body>
 </html>

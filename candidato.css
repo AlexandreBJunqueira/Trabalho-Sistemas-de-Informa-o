@@ -1,0 +1,142 @@
+body {
+    background-color: #ffffff;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: white;
+    background-color: #004E95;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+margin-bottom: 5px; /* Adiciona um pequeno espaçamento entre o rótulo e o input */
+}
+
+.input-third {
+width: calc(33.33% - 10px);
+}
+
+.input-half {
+width: calc(50% - 10px);
+}
+
+.input-quarter {
+width: calc(25% - 10px);
+}
+
+label {
+    color: #004E95;
+}
+
+input[type="submit"] {
+    background-color: #FBAA26;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #F79200;
+}
+
+.container {
+    max-width: 800px; /* Defina a largura máxima desejada */
+    margin: 0 auto; /* Centralize o contêiner horizontalmente */
+    padding: 20px; /* Adicione algum espaçamento interno */
+}   
+
+.header {
+    background-color: #004E95; /* Cor de fundo azul para a faixa superior */
+    color: #ffffff; /* Cor do texto branco */
+    padding: 0px;
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.logo {
+    display: inline-block; /* Exibe o logo como um bloco em linha */
+    margin-right: 20px; /* Adicione um espaçamento à direita do logo */
+    position: absolute; /* Define a posição absoluta */
+    top: 27px; /* Alinha a imagem ao topo */
+    left: 20px; /* Alinha a imagem à esquerda */
+}
+
+.logo img {
+    height: 80px; /* Define a altura do logo */
+}
+
+.title {
+    display: inline-block; /* Exibe o título como um bloco em linha */
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.info-table th, .info-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.info-table th {
+    background-color: #004E95;
+    color: white;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form label {
+    width: 45%;
+    margin: 10px 2.5%;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center;
+    color: #333;
+}
+
+form input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff6600;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+form input[type="checkbox"]:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #ff6600;
+    border-radius: 50%;
+    position: absolute;
+    top: 3.3px;
+    left: 3.3px;
+}

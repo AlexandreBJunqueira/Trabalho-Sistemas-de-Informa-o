@@ -119,7 +119,7 @@ $conn->close();
         </tbody>
     </table>
     <div class="container" style="text-align: center;">
-    <a href="index.html" style="font-size: 12px;">Voltar para a página inicial</a>
+    <a href="menu_avaliador.html" style="font-size: 12px;">Voltar para a página inicial</a>
   </div>
 </div>
 </body>

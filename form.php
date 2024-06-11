@@ -161,7 +161,6 @@
           <option value="Feminino">Feminino</option>
           <option value="Não-binário">Não-binário</option>
           <option value="Gênero fluido">Gênero fluido</option>
-          <option value="Travesti">Travesti</option>
           <option value="Transgênero">Transgênero</option>
           <option value="Outro">Outro</option>
         </select>

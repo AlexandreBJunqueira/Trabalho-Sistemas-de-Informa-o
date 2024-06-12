@@ -45,6 +45,9 @@ $sql = "CREATE TABLE inscritos (
     data_inscrição DATE,
     conheceu_pj VARCHAR(30) NOT NULL,
     mentoria TINYINT(1) DEFAULT 0,
+    feedback_slides_pesssoal VARCHAR(200) DEFAULT '',
+    feedback_dinamica_em_grupo VARCHAR(200) DEFAULT '',
+    feedback_entrevista VARCHAR(200) DEFAULT '',
     CONSTRAINT fk_nusp FOREIGN KEY (nusp) REFERENCES cadastrados(nusp)
 );";
 

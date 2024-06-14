@@ -32,6 +32,10 @@ function getStatus($status, $feedback) {
     return $status ? 'Aprovado' : 'Aguardando';
 }
 
+function getStatusPalestra($status, $feedback) {
+    return $status ? 'Compareceu' : 'Não Compareceu';
+}
+
 $stmt->close();
 $conn->close();
 ?>
@@ -108,7 +112,7 @@ $conn->close();
 
 <div class="header">
     <div class="container">
-        <a class="logo" href="menu_candidato.html">
+        <a class="logo" href="menu_candidato_processos_seletivos.php">
             <img src="logo_pj.png" alt="Logo da Empresa">
         </a>
         <div class="title">
@@ -129,7 +133,7 @@ $conn->close();
     <tbody>
         <tr>
             <td>Palestra Institucional</td>
-            <td><?php echo getStatus($inscrito['palestra_institucional'], ''); ?></td>
+            <td><?php echo getStatusPalestra($inscrito['palestra_institucional'], ''); ?></td>
             <td>-</td>
         </tr>
         <tr>

@@ -44,7 +44,7 @@
   
       if ($conn->query($sql) === TRUE) {
         echo "Dados guardados com sucesso.";
-        header("Location: menu_candidato.html");
+        header("Location: login.php");
       }else{
         echo "Erro:". $sql . "<br>". $conn->error;
       }

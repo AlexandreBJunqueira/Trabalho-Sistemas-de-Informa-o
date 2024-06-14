@@ -17,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $feedback_dinamica_em_grupo = $_POST['feedback_dinamica_em_grupo'];
     $feedback_entrevista = $_POST['feedback_entrevista'];
 
+    // Captura os horários de Dinâmica em Grupo e Entrevista
+    $data_dinamica_em_grupo = $_POST['data_dinamica_em_grupo'];
+    $data_entrevista = $_POST['data_entrevista'];
+
     $sql = "UPDATE inscritos SET 
                 palestra_institucional = $palestra_institucional, 
                 slides_pessoal = $slides_pessoal, 
@@ -25,7 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 mentoria = $mentoria,
                 feedback_slides_pessoal = '$feedback_slides_pessoal',
                 feedback_dinamica_em_grupo = '$feedback_dinamica_em_grupo',
-                feedback_entrevista = '$feedback_entrevista'
+                feedback_entrevista = '$feedback_entrevista',
+                data_dinamica_em_grupo = '$data_dinamica_em_grupo',
+                data_entrevista = '$data_entrevista'
             WHERE nusp = $nusp AND processo_seletivo = '$processo_seletivo'";
     
     if ($conn->query($sql) === TRUE) {
@@ -57,7 +63,7 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -139,6 +145,10 @@ $conn->close();
 
             <h2>Situação no Processo Seletivo</h2>
             <form action="candidato.php" method="post">
+                                <label for="data_dinamica_em_grupo">Data e Horário da Dinâmica em Grupo:</label><br>
+                <input type="datetime-local" id="data_dinamica_em_grupo" name="data_dinamica_em_grupo" value="<?php echo htmlspecialchars($inscritos['data_dinamica_em_grupo']); ?>"><br>
+                <label for="data_entrevista">Data e Horário da Entrevista:</label><br>
+                <input type="datetime-local" id="data_entrevista" name="data_entrevista" value="<?php echo htmlspecialchars($inscritos['data_entrevista']); ?>"><br>
                 <input type="hidden" name="processo_seletivo" value="<?php echo htmlspecialchars($inscritos['processo_seletivo']); ?>">
                 <input type="hidden" name="nusp" value="<?php echo htmlspecialchars($candidato['nusp']); ?>">
                 <label>
@@ -150,18 +160,18 @@ $conn->close();
                 <label>
                     <input type="checkbox" name="slides_pessoal" <?php if ($inscritos['slides_pessoal']) echo 'checked'; ?>> Slides Pessoal
                 </label><br>
-                <textarea name="feedback_slides_pessoal" rows="4" cols="50" maxlength="200"><?php echo htmlspecialchars($inscritos['feedback_slides_pessoal']); ?></textarea><br>
+                <textarea name="feedback_slides_pessoal" rows="5" cols="40" maxlength="200"><?php echo htmlspecialchars($inscritos['feedback_slides_pessoal']); ?></textarea><br>
                 <label>
                     <input type="checkbox" name="dinamica_em_grupo" <?php if ($inscritos['dinamica_em_grupo']) echo 'checked'; ?>> Dinâmica em Grupo
                 </label><br>
-                <textarea name="feedback_dinamica_em_grupo" rows="4" cols="50" maxlength="200"><?php echo htmlspecialchars($inscritos['feedback_dinamica_em_grupo']); ?></textarea><br>
+                <textarea name="feedback_dinamica_em_grupo" rows="5" cols="40" maxlength="200"><?php echo htmlspecialchars($inscritos['feedback_dinamica_em_grupo']); ?></textarea><br>
                 <label>
                     <input type="checkbox" name="entrevista" <?php if ($inscritos['entrevista']) echo 'checked'; ?>> Entrevista
                 </label><br>
-                <textarea name="feedback_entrevista" rows="4" cols="50" maxlength="200"><?php echo htmlspecialchars($inscritos['feedback_entrevista']); ?></textarea><br>
+                <textarea name="feedback_entrevista" rows="5" cols="40" maxlength="200"><?php echo htmlspecialchars($inscritos['feedback_entrevista']); ?></textarea><br>
+
                 <input type="submit" name="submit" value="Atualizar">
             </form>
-            
         <?php else: ?>
             <p>Candidato não encontrado.</p>
         <?php endif; ?>

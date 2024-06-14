@@ -1,0 +1,140 @@
+body {
+    background-color: #ffffff;
+    color: #004E95;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    color: white;
+    background-color: #004E95;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    margin-bottom: 5px; /* Adiciona um pequeno espaçamento entre o rótulo e o input */
+  }
+  
+  .input-third {
+    width: calc(33.33% - 10px);
+  }
+  
+  .input-half {
+    width: calc(50% - 10px);
+  }
+  
+  .input-quarter {
+    width: calc(25% - 10px);
+  }
+  
+  .diversidade-section {
+    background-color: #ffffff;
+    color: #004E95;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #004E95;
+    border-radius: 5px;
+  }
+  
+  .diversidade-section h3 {
+    color: #FBAA26;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    color: #004E95;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0px;
+    border: 1px solid #004E95;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #FBAA26;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #F79200;
+  }
+  
+  .container {
+    max-width: 800px; /* Defina a largura máxima desejada */
+    margin: 0 auto; /* Centralize o contêiner horizontalmente */
+    padding: 20px; /* Adicione algum espaçamento interno */
+  }
+  
+  .diversidade-section {
+    background-color: #004E95; /* Cor de fundo azul para a seção de Diversidade */
+    color: #ffffff; /* Cor do texto branco para a seção de Diversidade */
+    padding: 20px; /* Adicione algum espaçamento interno */
+    border-radius: 15px; /* Adicione um pouco de arredondamento às bordas */
+  }
+  
+  .diversidade-section h3 {
+    color: #ffffff; /* Cor do texto branco para o título da seção */
+  }
+  
+  .diversidade-section label {
+    color: #ffffff; /* Cor do texto branco */
+    font-size: 10px;
+  }
+  
+  .header {
+    background-color: #004E95; /* Cor de fundo azul para a faixa superior */
+    color: #ffffff; /* Cor do texto branco */
+    padding: 0px;
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente */
+  }
+  
+  .logo {
+    display: inline-block; /* Exibe o logo como um bloco em linha */
+    margin-right: 20px; /* Adicione um espaçamento à direita do logo */
+    position: absolute; /* Define a posição absoluta */
+    top: 27px; /* Alinha a imagem ao topo */
+    left: 20px; /* Alinha a imagem à esquerda */
+  }
+  
+  .logo img {
+    height: 80px; /* Define a altura do logo */
+  }
+  
+  .title {
+    display: inline-block; /* Exibe o título como um bloco em linha */
+  }
+  
+  .error-message {
+    text-align: center; /* Centraliza o conteúdo horizontalmente */
+    position: absolute; /* Posição absoluta em relação ao pai */
+    top: 50%; /* Define o topo a 50% da altura do pai */
+    left: 50%; /* Define a esquerda a 50% da largura do pai */
+    transform: translate(-50%, -50%); /* Move a div de volta 50% da sua própria largura e altura */
+  }
+  
+  footer {
+    background-color: #004E95;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }

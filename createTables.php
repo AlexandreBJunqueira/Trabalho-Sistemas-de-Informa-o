@@ -48,6 +48,8 @@ $sql = "CREATE TABLE inscritos (
     feedback_slides_pesssoal VARCHAR(200) DEFAULT '',
     feedback_dinamica_em_grupo VARCHAR(200) DEFAULT '',
     feedback_entrevista VARCHAR(200) DEFAULT '',
+    data_dinamica_em_grupo DATETIME,
+    data_entrevista DATETIME,
     CONSTRAINT fk_nusp FOREIGN KEY (nusp) REFERENCES cadastrados(nusp)
 );";
 
@@ -70,12 +72,39 @@ if ($conn->query($sql) === TRUE) {
 }
 
 // Inserção de dados na tabela 'avaliadores'
-$sql = "INSERT INTO avaliadores (nusp, senha) VALUES ('12561642', 'abj19032005');";
+$sql = "INSERT INTO avaliadores (nusp, senha) VALUES ('admin', 'admin');";
 
 if ($conn->query($sql) === TRUE) {
     echo "Dados inseridos na tabela 'avaliadores' com sucesso!";
 } else {
     echo "Erro ao inserir dados na tabela 'avaliadores': " . $conn->error;
+}
+
+$sql = "CREATE TABLE datas_comuns (
+    `data` DATETIME NOT NULL,
+    processo_seletivo VARCHAR(4) NOT NULL,
+    evento VARCHAR(20) NOT NULL
+);";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Tabela 'avaliadores' criada com sucesso!";
+} else {
+    echo "Erro ao criar tabela 'avaliadores': " . $conn->error;
+}
+
+$sql = "CREATE TABLE avisos (
+    id INT NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(20) NOT NULL,
+    aviso VARCHAR(200) NOT NULL,
+    processo_seletivo VARCHAR(4) NOT NULL,
+    `data` DATE,
+    PRIMARY KEY (id)
+);";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Tabela 'avaliadores' criada com sucesso!";
+} else {
+    echo "Erro ao criar tabela 'avaliadores': " . $conn->error;
 }
 
 // Fecha a conexão

@@ -53,7 +53,7 @@ $conn->close();
         <?php endforeach; ?>
     </div>
     <div class="container" style="text-align: center;">
-        <a href="logout.php" style="font-size: 12px;">Logout</a>
+        <a href="menu_candidato.html" style="font-size: 12px;">Menu Inicial</a>
     </div>
 </div>
 

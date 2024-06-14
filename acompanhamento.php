@@ -48,6 +48,14 @@ while ($row = $result_geral->fetch_assoc()) {
 }
 
 $stmt_geral->close();
+
+$sql_avisos = "SELECT titulo, aviso FROM avisos WHERE processo_seletivo = ? ORDER BY id DESC";
+$stmt_avisos = $conn->prepare($sql_avisos);
+$stmt_avisos->bind_param("s", $processo_seletivo);
+$stmt_avisos->execute();
+$result_avisos = $stmt_avisos->get_result();
+
+$stmt_avisos->close();
 $conn->close();
 
 // Definir valores padrão se as datas não estiverem definidas
@@ -103,7 +111,12 @@ function getStatusPalestra($status) {
         background-color: #004E95;
         color: white;
         text-align: center;
+        margin-top: 10px;
         padding: 10px 0;
+    }
+
+    td.text-center {
+        text-align: center;
     }
 </style>
 
@@ -174,7 +187,7 @@ function getStatusPalestra($status) {
         <tr>
             <td>Slides Pessoal</td>
             <td><?php echo getStatus($inscrito['slides_pessoal'], $inscrito['feedback_slides_pessoal']); ?></td>
-            <td>
+            <td class="text-center">
                 <?php 
                     $feedback = htmlspecialchars($inscrito['feedback_slides_pessoal']);
                     echo '<textarea class="feedback-textarea" rows="4" cols="50" readonly>' . $feedback . '</textarea>';
@@ -183,7 +196,7 @@ function getStatusPalestra($status) {
         </tr>
         <td>Dinâmica em Grupo</td>
             <td><?php echo getStatus($inscrito['dinamica_em_grupo'], $inscrito['feedback_dinamica_em_grupo']); ?></td>
-            <td>
+            <td class="text-center">
                 <?php 
                     $feedback = htmlspecialchars($inscrito['feedback_dinamica_em_grupo']);
                     echo '<textarea class="feedback-textarea" rows="4" cols="50" readonly>' . $feedback . '</textarea>';
@@ -193,7 +206,7 @@ function getStatusPalestra($status) {
         <tr>
             <td>Entrevista</td>
             <td><?php echo getStatus($inscrito['entrevista'], $inscrito['feedback_entrevista']); ?></td>
-            <td>
+            <td class="text-center">
                 <?php 
                     $feedback = htmlspecialchars($inscrito['feedback_entrevista']);
                     echo '<textarea class="feedback-textarea" rows="4" cols="50" readonly>' . $feedback . '</textarea>';
@@ -205,6 +218,29 @@ function getStatusPalestra($status) {
 
 <h2>Calendário de Etapas</h2>
 <div id="calendar"></div>
+
+<h2>Avisos Gerais</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Assunto</th>
+            <th>Aviso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php while ($row_aviso = $result_avisos->fetch_assoc()) { ?>
+        <tr>
+            <td><?php echo htmlspecialchars($row_aviso['titulo']); ?></td>
+            <td class="text-center">
+                <?php 
+                    $aviso = htmlspecialchars($row_aviso['aviso']);
+                    echo '<textarea class="feedback-textarea" rows="4" cols="50" readonly>' . $aviso . '</textarea>';
+                ?>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
 <footer>
     <p>© 2024 Poli Júnior. Todos os direitos reservados.</p>

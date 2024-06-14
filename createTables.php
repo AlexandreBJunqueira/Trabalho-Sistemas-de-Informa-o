@@ -83,7 +83,7 @@ if ($conn->query($sql) === TRUE) {
 $sql = "CREATE TABLE datas_comuns (
     `data` DATETIME NOT NULL,
     processo_seletivo VARCHAR(4) NOT NULL,
-    evento VARCHAR(20) NOT NULL
+    evento VARCHAR(30) NOT NULL
 );";
 
 if ($conn->query($sql) === TRUE) {

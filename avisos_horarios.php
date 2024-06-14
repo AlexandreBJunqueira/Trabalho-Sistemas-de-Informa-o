@@ -146,6 +146,10 @@ $conn->close();
         <textarea id="aviso" name="aviso" maxlength="200" rows="4" cols="50" required></textarea>
     </div>
     <input type="submit" name="submit_notice" value="Enviar Aviso">
+
+    <div class="container" style="text-align: center;">
+    <a href="menu_avaliador.html" style="font-size: 12px;">Voltar para a página inicial</a>
+  </div>
   </form>
 
   <?php

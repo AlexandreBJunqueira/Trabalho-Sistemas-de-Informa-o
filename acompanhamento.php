@@ -15,7 +15,9 @@ $nusp = $_SESSION['nusp'];
 $processo_seletivo = $_GET['processo_seletivo'];
 
 // Busca os dados do processo seletivo para o usuário
-$sql = "SELECT palestra_institucional, slides_pessoal, dinamica_em_grupo, entrevista, feedback_slides_pessoal, feedback_dinamica_em_grupo, feedback_entrevista 
+$sql = "SELECT palestra_institucional, slides_pessoal, dinamica_em_grupo, entrevista, 
+               feedback_slides_pessoal, feedback_dinamica_em_grupo, feedback_entrevista,
+               data_dinamica_em_grupo, data_entrevista
         FROM inscritos 
         WHERE nusp = ? AND processo_seletivo = ?";
 $stmt = $conn->prepare($sql);
@@ -23,6 +25,36 @@ $stmt->bind_param("is", $nusp, $processo_seletivo);
 $stmt->execute();
 $result = $stmt->get_result();
 $inscrito = $result->fetch_assoc();
+
+if (!$inscrito) {
+    echo "Nenhum dado encontrado para o inscrito.";
+    exit();
+}
+
+$stmt->close();
+
+// Busca as datas gerais
+$sql_geral = "SELECT evento, `data` 
+              FROM datas_comuns 
+              WHERE processo_seletivo = ?";
+$stmt_geral = $conn->prepare($sql_geral);
+$stmt_geral->bind_param("s", $processo_seletivo);
+$stmt_geral->execute();
+$result_geral = $stmt_geral->get_result();
+
+$datas_gerais = [];
+while ($row = $result_geral->fetch_assoc()) {
+    $datas_gerais[$row['evento']] = $row['data'];
+}
+
+$stmt_geral->close();
+$conn->close();
+
+// Definir valores padrão se as datas não estiverem definidas
+$datas_gerais['Palestra Institucional'] = $datas_gerais['Palestra Institucional'] ?? '0000-00-00T00:00:00';
+$datas_gerais['Slides Pessoais'] = $datas_gerais['Slides Pessoais'] ?? '0000-00-00T00:00:00';
+$inscrito['data_dinamica_em_grupo'] = $inscrito['data_dinamica_em_grupo'] ?? '0000-00-00T00:00:00';
+$inscrito['data_entrevista'] = $inscrito['data_entrevista'] ?? '0000-00-00T00:00:00';
 
 // Função para verificar se uma etapa está "Reprovada" com base no feedback
 function getStatus($status, $feedback) {
@@ -32,12 +64,9 @@ function getStatus($status, $feedback) {
     return $status ? 'Aprovado' : 'Aguardando';
 }
 
-function getStatusPalestra($status, $feedback) {
+function getStatusPalestra($status) {
     return $status ? 'Compareceu' : 'Não Compareceu';
 }
-
-$stmt->close();
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -80,33 +109,39 @@ $conn->close();
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-  
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: [
-        {
-          title: 'Entrevista Inicial',
-          start: '2024-05-15',
-          backgroundColor: '#004E95' 
-        },
-        {
-          title: 'Avaliação Técnica',
-          start: '2024-05-20',
-          backgroundColor: '#004E95' 
-        },
-        {
-          title: 'Dinâmica de Grupo',
-          start: '2024-05-25',
-          backgroundColor: '#004E95'
-        }
-      ]
-      });
-  
-      calendar.render();
+        var calendarEl = document.getElementById('calendar');
+
+        var events = [
+            {
+                title: 'Palestra Institucional',
+                start: '<?php echo $datas_gerais['Palestra Institucional']; ?>',
+                backgroundColor: '#004E95'
+            },
+            {
+                title: 'Slides Pessoais',
+                start: '<?php echo $datas_gerais['Slides Pessoais']; ?>',
+                backgroundColor: '#004E95'
+            },
+            {
+                title: 'Dinâmica de Grupo',
+                start: '<?php echo $inscrito['data_dinamica_em_grupo']; ?>',
+                backgroundColor: '#004E95'
+            },
+            {
+                title: 'Entrevista',
+                start: '<?php echo $inscrito['data_entrevista']; ?>',
+                backgroundColor: '#004E95'
+            }
+        ];
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: events
+        });
+
+        calendar.render();
     });
 </script>
-
 </head>
 <body>
 

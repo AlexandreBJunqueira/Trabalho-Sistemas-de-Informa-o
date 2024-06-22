@@ -85,6 +85,8 @@ function getStatusPalestra($status) {
 <title>Acompanhar Processo Seletivo</title>
 <link rel="stylesheet" href="form.css">
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/tippy-bundle.umd.min.js'></script>
 <style>
     /* Estilo para a tabela */
     table {
@@ -118,6 +120,14 @@ function getStatusPalestra($status) {
     td.text-center {
         text-align: center;
     }
+
+    /* Custom tooltip style */
+    .tippy-box.custom-tooltip {
+        background-color: #004E95;
+        font-size: 2em;
+        padding: 10px;
+        color: white;
+    }
 </style>
 
 <script>
@@ -149,7 +159,17 @@ function getStatusPalestra($status) {
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
-            events: events
+            events: events,
+            eventDidMount: function(info) {
+                tippy(info.el, {
+                    content: info.event.title + ' - ' + info.event.start.toLocaleString(),
+                    placement: 'top',
+                    theme: 'light',
+                    onShow(instance) {
+                        instance.popper.classList.add('custom-tooltip');
+                    }
+                });
+            }
         });
 
         calendar.render();

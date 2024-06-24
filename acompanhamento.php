@@ -262,6 +262,10 @@ function getStatusPalestra($status) {
     </tbody>
 </table>
 
+<div class="container" style="text-align: center;">
+    <a href="menu_candidato_processos_seletivos.php" style="font-size: 12px;">Voltar para a página inicial</a>
+</div>
+
 <footer>
     <p>© 2024 Poli Júnior. Todos os direitos reservados.</p>
 </footer>
